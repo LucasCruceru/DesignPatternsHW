@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class Functionality {
 
+    private static double cartPrice = 0;
+
     static Cart addToCart(Cart cart, ArrayList<Product> products) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please add the id of the item you want to add to your cart");
@@ -34,11 +36,20 @@ public class Functionality {
         cart.getProd().forEach(Functionality::showItem);
     }
 
-    static void checkout(Cart cart, int transp){
-        double cartPrice = 0;
-        cart.getProd().forEach(prod -> (cartPrice = cartPrice + prod.getPrice()));
 
+    static void checkout(Cart cart, double transp){
 
+        cart.getProd().forEach(prod -> calculatePrice(prod.getPrice()));
+
+        double fullPrice = transp + cartPrice;
+
+        System.out.println("Comanda dvs. in valoare totala de " + fullPrice + "(din care "+ cartPrice +" valoare produse si "
+                + transp +" valoare transport), a fost expediata. Va multumim!");
+
+    }
+
+    private static void calculatePrice(double price){
+        cartPrice = price + cartPrice;
     }
 
     private static void generateTableHeader() {

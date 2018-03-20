@@ -42,7 +42,7 @@ public class Main {
                 Functionality.listCart(cart);
                 break;
             case 4:
-                System.out.println("4");
+                Functionality.checkout(cart, transportPrice);
                 break;
             case 5:
                 closeApp();
