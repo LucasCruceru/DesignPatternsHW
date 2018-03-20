@@ -1,15 +1,25 @@
 package ro.lucas;
 
+import ro.lucas.entities.Cart;
+import ro.lucas.entities.Product;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     private static int on = 1;
 
+    static Cart cart = new Cart(1, new ArrayList<>());
+
+    static ArrayList<Product> products = DBMock.initProducts();
+
+    static double transportPrice = 12;
+
     public static void main(String[] args) {
 
         while(on == 1) {
-            startMessage();
+            Messages.startMessage();
 
             Scanner sc = new Scanner(System.in);
 
@@ -23,7 +33,16 @@ public class Main {
 
         switch (action){
             case 1:
-                System.out.println("works");
+                Functionality.listItems(products);
+                break;
+            case 2:
+                Functionality.addToCart(cart, products);
+                break;
+            case 3:
+                Functionality.listCart(cart);
+                break;
+            case 4:
+                System.out.println("4");
                 break;
             case 5:
                 closeApp();
@@ -35,17 +54,4 @@ public class Main {
         System.out.println("Closing app");
         on = 0;
     }
-
-    private static void startMessage(){
-
-        StringBuilder sb = new StringBuilder();
-
-        sb.append("Please select your option: \n")
-                .append("1. List items \n")
-                .append("2. Add item to cart \n")
-                .append("3. Show Cart \n")
-                .append("4. Checkout \n")
-                .append("5. Close the app \n");
-
-        System.out.println(sb.toString());
-    }}
+    }

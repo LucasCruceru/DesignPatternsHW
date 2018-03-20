@@ -1,4 +1,4 @@
-package ro.lucas;
+package ro.lucas.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,10 +11,9 @@ import java.util.ArrayList;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order {
+public class Cart {
 
     private int id;
-    private int userId;
     private ArrayList<Product> prod;
 
 }

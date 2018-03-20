@@ -1,4 +1,4 @@
-package ro.lucas;
+package ro.lucas.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +9,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Client {
+public class Product {
     private int id;
-    private String fullName;
+    private String name;
+    private double price;
+    private Unit unit;
 
 }
